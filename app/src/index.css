@@ -1,0 +1,61 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-paper: #f4f5f3;
+  --color-card: #fcfcfb;
+  --color-sunk: #eceeeb;
+  --color-line: #dde1e3;
+  --color-line2: #c6ccd0;
+  --color-ink: #15191e;
+  --color-muted: #59616a;
+  --color-faint: #848c94;
+
+  --color-navy: #173b5c;
+  --color-navy-dark: #0f2b45;
+  --color-navy-soft: #e3ebf2;
+
+  --color-p1: #b42318;
+  --color-p1-soft: #fbe6e3;
+  --color-p2: #b45309;
+  --color-p2-text: #8f4106;
+  --color-p2-soft: #fcefdc;
+  --color-p3: #3f6b52;
+  --color-p3-soft: #e4efe8;
+
+  --font-sans: 'Public Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --radius: 5px;
+  --radius-sm: 3px;
+}
+
+@utility card {
+  @apply bg-card border border-line rounded;
+}
+@utility eyebrow {
+  @apply font-mono text-[11px] leading-[14px] uppercase tracking-[0.08em] text-muted;
+}
+@utility num {
+  @apply font-mono tabular-nums;
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-1.5 rounded px-4 py-2 font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+}
+@utility btn-primary {
+  @apply btn bg-navy text-white hover:bg-navy-dark;
+}
+@utility btn-quiet {
+  @apply btn border border-line2 bg-card text-ink hover:bg-sunk;
+}
+@utility input {
+  @apply w-full rounded border border-line2 bg-card px-3 py-2 text-ink placeholder:text-faint focus:border-navy focus:outline-hidden;
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-paper text-ink font-sans antialiased; font-size: 14px; line-height: 20px; }
+  ::selection { background: #cfdbe7; }
+  :focus-visible { outline: 2px solid #173b5c; outline-offset: 2px; }
+  button:not(:disabled), [role='button'], summary, select, label[for] { cursor: pointer; }
+  *, ::after, ::before { border-color: var(--color-line); }
+}
